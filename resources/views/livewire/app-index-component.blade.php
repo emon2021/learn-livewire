@@ -59,6 +59,39 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="search">
+
+                            <input type="text" wire:model.live='search' placeholder="Search">
+
+                            <span wire:loading>loading...</span>
+
+                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($users as $user)
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->created_at }}</td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="3">No users found</td>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 </div>

@@ -9,7 +9,7 @@ use App\Http\Requests\ValidateRequest;
 
 class AppIndexComponent extends Component
 {
-    public $name, $email, $password, $password_confirmation;
+    public $name, $email, $password, $password_confirmation, $search;
 
     public function updated($fields){
         $valid = new ValidateRequest();
@@ -33,6 +33,15 @@ class AppIndexComponent extends Component
 
     public function render()
     {
-        return view('livewire.app-index-component');
+        $query = new User();
+
+        if($this->search){
+            $users = $query->where('name', 'like', '%' . $this->search . '%')->get();
+        }else{
+            $users = $query->get();
+        }
+
+
+        return view('livewire.app-index-component')->with(['users' => $users]);
     }
 }
