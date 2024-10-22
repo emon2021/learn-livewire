@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\AppIndexComponent;
+use App\Livewire\AppStoreComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/show-user', AppIndexComponent::class)->name('show-user');
+Route::get('/store', AppIndexComponent::class)->name('store');
