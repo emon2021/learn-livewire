@@ -16,6 +16,12 @@ class AppIndexComponent extends Component
         $this->validate($valid->rules(), $valid->messages());
     }
 
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        session()->flash('delete', 'User deleted successfully');
+    }
     public function store()
     {
         $user = new User();

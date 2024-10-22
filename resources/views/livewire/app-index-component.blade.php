@@ -68,12 +68,16 @@
                             <span wire:loading>loading...</span>
 
                     </div>
+                    @session('delete')
+                        <div class="alert alert-danger">{{ session('delete') }}</div>
+                    @endsession
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Created At</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,6 +86,13 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->created_at }}</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">Edit</a>
+                                    <a href="#"
+                                    wire:click.prevent ='delete({{ $user->id }})'
+                                    wire:confirm='Are you sure?'
+                                    class="btn btn-danger">Delete</a>
+                                </td>
                             </tr>
                             @empty
                             <tr>
