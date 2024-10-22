@@ -18,9 +18,6 @@ class AppIndexComponent extends Component
 
     public function store()
     {
-        $valid = new ValidateRequest();
-        $this->validate($valid->rules(), $valid->messages());
-
         $user = new User();
         $user->name = $this->name;
         $user->email = $this->email;

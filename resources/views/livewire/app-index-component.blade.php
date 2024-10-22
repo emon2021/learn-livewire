@@ -15,7 +15,7 @@
                             <form action="{{ route('store') }}" wire:submit.prevent='store' >
                                 <div class="form-group">
                                     <label for="name">{{ __('Name') }}</label>
-                                    <input id="name" wire:model='name' type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
+                                    <input id="name" wire:model.live='name' type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email">{{ __('E-Mail Address') }}</label>
-                                    <input id="email" wire:model='email' type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email">
+                                    <input id="email" wire:model.live='email' type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">{{ __('Password') }}</label>
-                                    <input id="password" wire:model='password' type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
+                                    <input id="password" wire:model.live='password' type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -43,7 +43,7 @@
 
                                 <div class="form-group">
                                     <label for="password-confirm">{{ __('Confirm Password') }}</label>
-                                    <input id="password-confirm" wire:model='password_confirmation' type="password" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirm Password (Optional)" name="password_confirmation"  autocomplete="new-password">
+                                    <input id="password-confirm" wire:model.live='password_confirmation' type="password" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirm Password (Optional)" name="password_confirmation"  autocomplete="new-password">
                                     @error('password_confirmation')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
